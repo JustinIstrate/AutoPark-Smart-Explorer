@@ -31,6 +31,7 @@
                 </form>
             </div>
             <?php
+            require_once "getrecords.php";
                get_all_records();
             ?>
         </div>
