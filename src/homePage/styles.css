@@ -1,0 +1,46 @@
+body{
+    width: 100%;
+    overflow-x: hidden;
+}
+.container {
+    text-align: center;
+    color: white;
+    margin-top: 15%;
+    transform: translateY(-50%);
+}
+
+.container h1,
+.container p {
+    background-color: rgba(128,128,128,0.5);
+    color: white;
+    padding: 10px;
+    display: inline-block;
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    max-width: 90%; /* Ensure text doesn't overflow container */
+}
+
+.container h1 {
+    font-size: 48px;
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+.container p {
+    font-size: 24px;
+    margin-bottom: 20px; /* Add some space below the paragraph */
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin-top: 30%; /* Adjusted margin-top for smaller screens */
+    }
+    
+    .container h1 {
+        font-size: 30px; /* Adjusted font size for smaller screens */
+    }
+    
+    .container p {
+        font-size: 15px; /* Adjusted font size for smaller screens */
+    }
+}
