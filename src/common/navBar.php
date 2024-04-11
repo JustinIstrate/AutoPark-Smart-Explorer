@@ -1,5 +1,5 @@
 <div class="row">
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" style="padding: 0 10%; width=100%;">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -10,15 +10,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Auto Park Smart Explorer</a>
+                <a class="navbar-brand" href="../homePage/index.php">AutoPark Smart Explorer</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="csvExplorer.php">Home</a></li> <!-- TODO JUSTIN -->
-                    <li><a href="csvExplorer/index.php">CSV Explorer</a></li>
-                    <li><a href="dataExplorer/index.php">Data explorer</a></li>
+                    <li><a href="../homePage/index.php">Home</a></li> 
+                    <li><a href="../csvExplorer/index.php">CSV Explorer</a></li>
+                    <li><a href="../about/about.php">About</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

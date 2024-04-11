@@ -1,21 +1,26 @@
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
+  overflow-x: hidden;
 }
 
-h1 {
+.container h1 {
   text-align: center;
+  color: white;
 }
 
 .container {
   max-width: 800px;
-  margin: 0 auto;
+  margin-top: 5%;
+  background-color: rgba(128,128,128,0.9);
+  border-radius: 10px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  border-radius: 10px;
 }
 
 table,
@@ -24,14 +29,38 @@ td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
+  color: white;
 }
 
 th {
   background-color: #f2f2f2;
+  color: black;
+}
+a[href="#"]:link,
+a[href="#"]:visited {
+    color: #4caf50 ;
+}
+a[href="#"]:hover {
+    color: #45a049;
+}
+a[href="../dataExplorer/index.php"]:link,
+a[href="../dataExplorer/index.php"]:visited {
+    color: #4caf50 ;
+}
+a[href="../dataExplorer/index.php"]:hover {
+    color: #45a049;
+}
+.csv-list-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.search-container {
-  margin-bottom: 20px;
+.search-container,
+.filter-container {
+  display: flex;
+  align-items: center;
 }
 
 .search-container input[type="text"] {
@@ -41,10 +70,6 @@ th {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-}
-
-.filter-container {
-  margin-bottom: 20px;
 }
 
 .filter-container select {

@@ -1,0 +1,10 @@
+.navBar {
+    font-family: Arial, sans-serif;
+    margin-top: 0px; 
+    margin-left: -19px;
+    margin-right: -19px;
+}
+body{
+    max-width: 100%;
+    overflow-x: hidden; 
+}
