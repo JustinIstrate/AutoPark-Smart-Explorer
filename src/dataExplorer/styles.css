@@ -1,10 +1,55 @@
-.navBar {
-    font-family: Arial, sans-serif;
-    margin-top: 0px; 
-    margin-left: -19px;
-    margin-right: -19px;
+/* Keep the global reset */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Tilt Neon", sans-serif;
 }
-body{
-    max-width: 100%;
-    overflow-x: hidden; 
+
+/* Modify body styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../homePage/background.jpg);
+  background-position: center top;
+  background-size: cover;
+}
+
+/* Adjust the wrapper */
+#wrap {
+  max-width: 800px;
+  margin: 5% auto;
+  background-color: rgba(128, 128, 128, 0.9);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Adjust form elements */
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+input[type="file"],
+input[type="submit"],
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style the buttons */
+input[type="file"],
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Style the buttons on hover */
+input[type="file"]:hover,
+input[type="submit"]:hover {
+  background-color: #45a049;
 }
