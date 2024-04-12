@@ -1,26 +1,35 @@
-<div class="row">
-    <nav class="navbar navbar-default" style="padding: 0 10%; width=100%;">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="../homePage/index.php">AutoPark Smart Explorer</a>
-            </div>
+<link rel="stylesheet" href="../common/styles.css">
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<nav>
+    <div class="logo" id="logo">
+        <a href="../homePage/index.php" class="logo">AutoPark Smart Explorer</a>
+    </div>
+    <div class="nav-links" id="navLinks">
+        <span class="material-symbols-outlined" onclick="hideMenu()">
+            close
+        </span>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../homePage/index.php">Home</a></li> 
-                    <li><a href="../csvExplorer/index.php">CSV Explorer</a></li>
-                    <li><a href="../about/about.php">About</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-</div>
+        <ul>
+            <li><a href="../homePage/index.php">Home</a></li>
+            <li><a href="../csvExplorer/index.php">CSV Explorer</a></li>
+            <li><a href="../about/about.php">About</a></li>
+        </ul>
+    </div>
+    <span class="material-symbols-outlined" onclick="showMenu()">
+        menu
+    </span>
+</nav>
+<script>
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu() {
+        navLinks.style.right = "0";
+    }
+
+    function hideMenu() {
+        navLinks.style.right = "-200px";
+    }
+</script>

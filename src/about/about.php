@@ -11,9 +11,7 @@
         crossorigin="anonymous">
 </head>
 <body>
-    <div class="navBar">
     <?php include '../common/navBar.php'; ?>
-    </div>
     <div class="container">
         <header>
             <h1>IEEE System Requirements Specification</h1>
