@@ -17,7 +17,7 @@ body {
 
 /* Adjust the wrapper */
 #wrap {
-  max-width: 800px;
+  width: 65%;
   margin: 5% auto;
   background-color: rgba(128, 128, 128, 0.9);
   border-radius: 10px;
@@ -25,31 +25,72 @@ body {
 }
 
 /* Adjust form elements */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
 .form-group {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  font-size: 20px;
 }
 
-input[type="file"],
-input[type="submit"],
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
+/* Style the container for the file input */
+.file-input-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Style the file input button (hidden) */
+.file-input-container input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
   cursor: pointer;
 }
 
-/* Style the buttons */
-input[type="file"],
-input[type="submit"] {
+/* Style the visible button */
+.file-input-label,
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
   background-color: #4caf50;
   color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  margin-right: 10px;
 }
 
-/* Style the buttons on hover */
-input[type="file"]:hover,
-input[type="submit"]:hover {
+/* Style the visible button on hover */
+.file-input-label:hover,
+.btn:hover {
   background-color: #45a049;
+}
+
+/* Style the dynamically generated table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-left: 45px;
+  text-align: center; /* Center-align table content */
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: black;
 }
