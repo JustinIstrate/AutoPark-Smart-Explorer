@@ -9,10 +9,6 @@ ini_set('max_execution_time', 60);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoPark Smart Explorer</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-        crossorigin="anonymous">
 </head>
 
 <body>
@@ -55,12 +51,6 @@ ini_set('max_execution_time', 60);
             ?>
         </div>
     </div>
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Bootstrap JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
-
 </body>
 
 </html>
