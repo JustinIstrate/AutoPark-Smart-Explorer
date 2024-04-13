@@ -15,6 +15,7 @@
         <ul>
             <li><a href="../homePage/index.php">Home</a></li>
             <li><a href="../csvExplorer/index.php">CSV Explorer</a></li>
+            <li><a href="../login/form.php">Admin</a></li>
             <li><a href="../about/about.php">About</a></li>
         </ul>
     </div>
