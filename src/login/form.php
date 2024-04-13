@@ -20,10 +20,10 @@ session_start();
         <p class="description">As an admin you can import data for the website.Please enter your credentials below.</p>
         <form name="form" action="auth.php" onsubmit="return validation()" method="POST">
             <label for="first">Email:</label>
-            <input type="text" id="first" name="first" placeholder="Enter your Username" required>
+            <input type="text" id="first" name="first" placeholder=" Enter 'admin' in case of no access to database" required>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+            <input type="password" id="password" name="password" placeholder="Enter 'password' in case of no access to database" required>
 
             <div class="wrap">
                 <button type="submit" onclick="solve()">Sign in</button>

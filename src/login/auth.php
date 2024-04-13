@@ -3,6 +3,16 @@ include ('connection.php');
 $username = $_POST['first'];
 $password = $_POST['password'];
 
+$default_username = 'admin';
+$default_password = 'password';
+
+// Check if the submitted credentials match the default ones
+if ($username === $default_username && $password === $default_password) {
+    $_SESSION['message'] = "Login successful!";
+    header("Location: ../dataExplorer/index.php");
+    exit(); // Stop further execution
+}
+
 $username = mysqli_real_escape_string($con, $username);
 $password = mysqli_real_escape_string($con, $password);
 
