@@ -17,7 +17,7 @@ body {
 
 /* Adjust the wrapper */
 #wrap {
-  width: 65%;
+  width: 75%;
   margin: 5% auto;
   background-color: rgba(128, 128, 128, 0.9);
   border-radius: 10px;
@@ -26,41 +26,25 @@ body {
 
 /* Adjust form elements */
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90%;
+  width: 100%;
+  text-align: center;
 }
 
 .form-group {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  font-size: 20px;
-}
-
-/* Style the container for the file input */
-.file-input-container {
-  position: relative;
   display: inline-block;
+  margin-bottom: 20px;
 }
 
-/* Style the file input button (hidden) */
-.file-input-container input[type="file"] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
+.control-label {
+  margin-right: 10px;
+}
+
+.input-large {
+  margin-right: 10px;
 }
 
 /* Style the visible button */
-.file-input-label,
 .btn {
-  display: inline-block;
   padding: 10px 20px;
   background-color: #4caf50;
   color: white;
@@ -71,18 +55,19 @@ body {
 }
 
 /* Style the visible button on hover */
-.file-input-label:hover,
 .btn:hover {
   background-color: #45a049;
 }
 
 /* Style the dynamically generated table */
+.table-container {
+  margin-top: 20px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
-  margin-left: 45px;
-  text-align: center; /* Center-align table content */
+  text-align: center;
 }
 
 th, td {
@@ -93,4 +78,74 @@ th, td {
 th {
   background-color: #f2f2f2;
   color: black;
+}
+@media screen and (max-width: 1500px){
+  table {
+    font-size: 12px;
+}
+
+th, td {
+    padding: 6px;
+}
+}
+@media screen and (max-width: 1000px){
+  table {
+    font-size: 8px;
+}
+
+th, td {
+    padding: 3px;
+}
+}
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+  #wrap {
+      width: 90%;
+      padding: 15px;
+  }
+
+  .control-label,
+  .input-large,
+  .btn {
+      font-size: 14px;
+      padding: 8px 16px;
+  }
+
+  table {
+      font-size: 8px;
+  }
+  
+  th, td {
+      padding: 3px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #wrap {
+      width: 100%;
+      padding: 10px;
+  }
+
+  .control-label,
+  .input-large,
+  .btn {
+      font-size: 12px;
+      padding: 6px 12px;
+  }
+
+  table {
+      font-size: 8px;
+  }
+  
+  th, td {
+      padding: 1px;
+  }
+}
+.diagram-section .container {
+  text-align: center;
+  margin:auto;
+}
+
+.diagram-section h2 {
+  color: white;
 }
