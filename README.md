@@ -7,3 +7,4 @@ Recurgand la un API REST/GraphQL propriu, sa se realizeze un instrument Web de v
 <br /> 
 
 ## Screenshots
+![alt text](https://github.com/seerbann/Proiect_TW/blob/main/screenshots/AboutPage.PNG)
