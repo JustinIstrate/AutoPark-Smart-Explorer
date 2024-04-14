@@ -21,4 +21,4 @@ Admin login <br />
 <br/>
 About Page <br/>
 ![alt text](https://github.com/seerbann/Proiect_TW/blob/main/screenshots/AboutPage.PNG)
-<br/ >
+<br/>
