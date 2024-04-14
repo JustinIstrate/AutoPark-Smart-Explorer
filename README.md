@@ -7,6 +7,18 @@ Recurgand la un API REST/GraphQL propriu, sa se realizeze un instrument Web de v
 <br /> 
 
 ## Screenshots
-![alt text] (https://github.com/seerbann/Proiect_TW/blob/main/screenshots/HomePage.PNG)
-![alt text] (https://github.com/seerbann/Proiect_TW/blob/main/screenshots/LittleHomePage.PNG)
+Home Page <br/>
+![alt text](https://github.com/seerbann/Proiect_TW/blob/main/screenshots/HomePage.PNG)
+<br/>
+Responsivness of the home page <br />
+![alt text](https://github.com/seerbann/Proiect_TW/blob/main/screenshots/LittleHomePage.PNG)
+<br/>
+Document exploration <br/ >
+![alt text](https://github.com/seerbann/Proiect_TW/blob/main/screenshots/CSVexploration.PNG)
+<br/>
+Admin login <br />
+![alt text](https://github.com/seerbann/Proiect_TW/blob/main/screenshots/AdminLogin.PNG)
+<br/>
+About Page <br/>
 ![alt text](https://github.com/seerbann/Proiect_TW/blob/main/screenshots/AboutPage.PNG)
+<br/ >
