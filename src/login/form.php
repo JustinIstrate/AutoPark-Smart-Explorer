@@ -8,9 +8,7 @@ session_start();
     <meta charset="utf-8" />
     <link rel="stylesheet" href="form.css" />
     <title>AutoPark Smart Explorer</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400&family=Tilt+Neon&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400&family=Tilt+Neon&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -28,10 +26,10 @@ session_start();
             <div class="wrap">
                 <button type="submit" onclick="solve()">Sign in</button>
             </div>
-            <?php if (isset($_SESSION['message'])): ?>
-            <p class="message"><?php echo $_SESSION['message']; ?></p>
-            <?php unset($_SESSION['message']); ?>
-        <?php endif; ?>
+            <?php if (isset($_SESSION['message'])) : ?>
+                <p class="message"><?php echo $_SESSION['message']; ?></p>
+                <?php unset($_SESSION['message']); ?>
+            <?php endif; ?>
         </form>
     </div>
     <script>

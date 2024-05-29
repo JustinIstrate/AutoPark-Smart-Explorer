@@ -1,11 +1,9 @@
 <link rel="stylesheet" href="../common/styles.css">
-<link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-<link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <nav>
     <div class="logo" id="logo">
-        <a href="../homePage/index.php" class="logo">AutoPark Smart Explorer</a>
+        <a href="/Proiect_TW/src/homePage" class="logo">AutoPark Smart Explorer</a>
     </div>
     <div class="nav-links" id="navLinks">
         <span class="material-symbols-outlined" onclick="hideMenu()">
@@ -13,10 +11,10 @@
         </span>
 
         <ul>
-            <li><a href="../homePage/index.php">Home</a></li>
-            <li><a href="../csvExplorer/index.php">CSV Explorer</a></li>
-            <li><a href="../login/form.php">Admin</a></li>
-            <li><a href="../about/about.php">About</a></li>
+            <li><a href="/Proiect_TW/src/homePage">Home</a></li>
+            <li><a href="/Proiect_TW/src/csvExplorer">CSV Explorer</a></li>
+            <li><a href="/Proiect_TW/src/login/form.php">Admin</a></li>
+            <li><a href="/Proiect_TW/src/about">About</a></li>
         </ul>
     </div>
     <span class="material-symbols-outlined" onclick="showMenu()">

@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /Proiect_TW/src/
+RewriteRule ^index\\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /Proiect_TW/src/index.php [L]
