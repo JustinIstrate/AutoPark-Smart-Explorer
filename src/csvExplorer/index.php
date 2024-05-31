@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <!-- asa incluzi componente -->
     <div class="container">
         <h1>CSV Explorer</h1>
 
