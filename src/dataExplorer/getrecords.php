@@ -94,4 +94,3 @@ function get_all_records(){
 }
 }
 */
-?>
