@@ -11,10 +11,10 @@
         </span>
 
         <ul>
-            <li><a href="#" onclick="loadPage('/Proiect_TW/src/homePage')">Home</a></li>
-            <li><a href="#" onclick="loadPage('/Proiect_TW/src/csvExplorer')">CSV Explorer</a></li>
-            <li><a href="#" onclick="loadPage('/Proiect_TW/src/login/form.php')">Admin</a></li>
-            <li><a href="#" onclick="loadPage('/Proiect_TW/src/about/about.php')">About</a></li>
+            <li><a href="#" onclick="loadPage('/Proiect_TW/src/homePage'); return false;">Home</a></li>
+            <li><a href="#" onclick="loadPage('/Proiect_TW/src/csvExplorer'); return false;">CSV Explorer</a></li>
+            <li><a href="#" onclick="loadPage('/Proiect_TW/src/login'); return false;">Admin</a></li>
+            <li><a href="#" onclick="loadPage('/Proiect_TW/src/about'); return false;">About</a></li>
         </ul>
     </div>
     <span class="material-symbols-outlined" onclick="showMenu()">
@@ -46,10 +46,16 @@
         xhr.onload = function() {
             if (xhr.status === 200) {
                 document.getElementById('content').innerHTML = xhr.responseText; //the content of the element with ID content is replaced with the response text
+                history.pushState(null, '', pageUrl); // Update the URL in the browser's address bar
             } else {
                 console.error('Error loading page: ' + xhr.status);
             }
         };
         xhr.send(); //This sends the request to the server.
     }
+
+    // Handle back and forward navigation
+    window.addEventListener('popstate', function(event) {
+        loadPage(location.pathname);
+    });
 </script>

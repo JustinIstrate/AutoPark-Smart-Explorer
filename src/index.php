@@ -18,11 +18,11 @@ switch ($request) {
     case '/Proiect_TW/src/csvExplorer':
         $content = loadPageContent('csvExplorer/index.php');
         break;
-    case '/Proiect_TW/src/login/form.php':
-        $content = loadPageContent('login/form.php');
+    case '/Proiect_TW/src/login':
+        $content = loadPageContent('login/index.php');
         break;
-    case '/Proiect_TW/src/about/about.php':
-        $content = loadPageContent('about/about.php');
+    case '/Proiect_TW/src/about':
+        $content = loadPageContent('about/index.php');
         break;
     default:
         http_response_code(404);
