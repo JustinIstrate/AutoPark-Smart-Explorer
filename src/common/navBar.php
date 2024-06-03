@@ -11,7 +11,7 @@
         </span>
 
         <ul>
-            <li><a href="#" onclick="loadPage('/Proiect_TW/src/homePage'); return false;">Home</a></li>
+            <li><a href="#" onclick="loadPage('/Proiect_TW/src/homePage/'); return false;">Home</a></li>
             <li><a href="#" onclick="loadPage('/Proiect_TW/src/csvExplorer'); return false;">CSV Explorer</a></li>
             <li><a href="#" onclick="loadPage('/Proiect_TW/src/login'); return false;">Admin</a></li>
             <li><a href="#" onclick="loadPage('/Proiect_TW/src/about'); return false;">About</a></li>
@@ -38,6 +38,9 @@
      without a full page reload. This makes your web application more dynamic and responsive to user interactions.
     */
     function loadPage(pageUrl) {
+        if (pageUrl.endsWith('/')) {
+            pageUrl = pageUrl.slice(0, -1);
+        }
         //creating the object
         const xhr = new XMLHttpRequest();
         //config the request
@@ -46,7 +49,9 @@
         xhr.onload = function() {
             if (xhr.status === 200) {
                 document.getElementById('content').innerHTML = xhr.responseText; //the content of the element with ID content is replaced with the response text
-                history.pushState(null, '', pageUrl); // Update the URL in the browser's address bar
+                history.pushState({
+                    page: pageUrl
+                }, '', pageUrl); // Update the URL in the browser's address bar
             } else {
                 console.error('Error loading page: ' + xhr.status);
             }
@@ -56,6 +61,17 @@
 
     // Handle back and forward navigation
     window.addEventListener('popstate', function(event) {
-        loadPage(location.pathname);
+        if (event.state && event.state.page) {
+            loadPage(event.state.page);
+        } else {
+            // Fallback to home page or initial page load
+            loadPage('/Proiect_TW/src/homePage');
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Load the initial page based on the URL
+        const initialPage = location.pathname === '/Proiect_TW/src/' ? '/Proiect_TW/src/homePage' : location.pathname;
+        loadPage(initialPage);
     });
 </script>

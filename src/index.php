@@ -8,18 +8,31 @@ function loadPageContent($page) {
     return ob_get_clean();
 }
 
+// Define the number of records per page
+$rowsPerPage = 10;
+
+// Extract path and query parameters
+$urlParts = parse_url($request);
+$path = $urlParts['path'] ?? '';
+$queryParams = $urlParts['query'] ?? '';
+parse_str($queryParams, $params);
+
 // Route the request
-switch ($request) {
-    case '':
+switch ($path) {
     case '/Proiect_TW/src/':
-    case '/Proiect_TW/src/homePage':
+    case '/Proiect_TW/src/homePage/':
         $content = loadPageContent('homePage/index.php');
         break;
     case '/Proiect_TW/src/csvExplorer':
         $content = loadPageContent('csvExplorer/index.php');
         break;
     case '/Proiect_TW/src/login':
+        $page = isset($params['page']) ? intval($params['page']) : 1;
         $content = loadPageContent('login/index.php');
+        break;
+    case '/Proiect_TW/src/dataExplorer':
+        $page = isset($params['page']) ? intval($params['page']) : 1;
+        $content = loadPageContent('dataExplorer/index.php');
         break;
     case '/Proiect_TW/src/about':
         $content = loadPageContent('about/index.php');
@@ -30,6 +43,12 @@ switch ($request) {
         break;
 }
 
+// Include pagination input in the content
+if (isset($page) && $page > 1) {
+    $content .= '<input type="hidden" id="currentPage" value="' . $page . '">';
+}
+
+// Output the content
 if ($isAjax) {
     echo $content;
 } else {

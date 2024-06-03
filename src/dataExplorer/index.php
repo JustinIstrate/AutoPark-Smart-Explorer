@@ -28,16 +28,17 @@
             $currentPage = isset($_GET['page']) ? $_GET['page'] : 1; // Current page number, default to 1
 
             // Display records with pagination
-            display_records_with_pagination($currentPage, $rowsPerPage);
+            $filters = array();
+            if (!empty($_GET['filter'])) {
+                parse_str($_GET['filter'], $filters);
+            }
+            display_records_with_pagination($currentPage, $rowsPerPage, $filters);
             ?>
         </div>
     </div>
     <div class="diagram-section">
         <div class="container">
             <h2>Example Diagram</h2>
-            <img src="diagram.png" alt="Example Diagram">
+            <img src="dataExplorer/diagram.png" alt="Example Diagram">
         </div>
     </div>
-</body>
-
-</html>
