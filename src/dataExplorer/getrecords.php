@@ -1,5 +1,5 @@
 <?php
-function get_records_from_csv($startRow, $rowsPerPage)
+function get_records_from_csv($startRow, $rowsPerPage, $filters = array())
 {
     $file = fopen("parcauto2016.csv", "r"); // Open the CSV file for reading
     $data = array(); // Initialize an empty array to store the data
@@ -10,13 +10,19 @@ function get_records_from_csv($startRow, $rowsPerPage)
 
     // Read each row from the CSV file until reaching the desired start row
     while ($rowCount < $startRow && ($row = fgetcsv($file)) !== false) {
-        $rowCount++;
+        // Check if row matches filters
+        if (matchesFilters($row, $filters)) {
+            $rowCount++;
+        }
     }
 
     // Read and store the rows corresponding to the desired number of rows per page
     while ($rowCount < $startRow + $rowsPerPage && ($row = fgetcsv($file)) !== false) {
-        $data[] = $row; // Add the row to the data array
-        $rowCount++;
+        // Check if row matches filters
+        if (matchesFilters($row, $filters)) {
+            $data[] = $row; // Add the row to the data array
+            $rowCount++;
+        }
     }
 
     fclose($file); // Close the file handle
@@ -25,13 +31,26 @@ function get_records_from_csv($startRow, $rowsPerPage)
     return array($header, $data);
 }
 
-function display_records_with_pagination($currentPage, $rowsPerPage)
+// Function to check if a row matches given filters
+function matchesFilters($row, $filters)
+{
+    // Example implementation: Check if the row matches filter conditions
+    // Replace this with your actual filter logic based on your CSV structure
+    foreach ($filters as $key => $value) {
+        if (!isset($row[$key]) || strpos(strtolower($row[$key]), strtolower($value)) === false) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function display_records_with_pagination($currentPage, $rowsPerPage, $filters = array())
 {
     // Calculate the start row based on the current page number and the rows per page
     $startRow = ($currentPage - 1) * $rowsPerPage + 1;
 
-    // Call the function to get records from the CSV file with pagination
-    list($header, $records) = get_records_from_csv($startRow, $rowsPerPage);
+    // Call the function to get records from the CSV file with pagination and filters
+    list($header, $records) = get_records_from_csv($startRow, $rowsPerPage, $filters);
 
     // Output the header
     echo "<table><tr>";
@@ -50,47 +69,19 @@ function display_records_with_pagination($currentPage, $rowsPerPage)
     }
     echo "</table>";
 
-    // Display next and previous page buttons
+    // Display next and previous page buttons with filters
+    $queryFilters = http_build_query($filters); // Convert filters to URL query string
+
     $totalRows = count(file("parcauto2016.csv")); // Get total number of rows in the CSV file
     $totalPages = ceil($totalRows / $rowsPerPage); // Calculate total number of pages
 
     echo '<div class="pagination">';
     if ($currentPage > 1) {
-        echo '<a href="?page=' . ($currentPage - 1) . '">Previous</a>';
+        echo '<a href="?page=' . ($currentPage - 1) . '&' . $queryFilters . '">Previous</a>';
     }
     if ($currentPage < $totalPages) {
-        echo '<a href="?page=' . ($currentPage + 1) . '">Next</a>';
+        echo '<a href="?page=' . ($currentPage + 1) . '&' . $queryFilters . '">Next</a>';
     }
     echo '</div>';
 }
-/*
-require_once "databaseconn.php";
-function get_all_records(){
-    $conn = getdb();
-    $Sql = "SELECT * FROM autoparkdatabase";
-    $result = mysqli_query($conn, $Sql);  
-    if (mysqli_num_rows($result) > 0) {
-     echo "<div class='table-responsive'><table id='myTable' class='table table-striped table-bordered'>
-             <thead><tr><th>JUDET</th>
-                          <th>CATEGORIE_NATIONALA</th>
-                          <th>CATEGORIE_COMUNITARA</th>
-                          <th>MARCA</th>
-                          <th>DESCRIERE_COMERCIALA</th>
-                          <th>TOTAL_VEHICULE</th>
-                        </tr></thead><tbody>";
-     while($row = mysqli_fetch_assoc($result)) {
-         echo "<tr><td>" . $row['JUDET']."</td>
-                   <td>" . $row['CATEGORIE_NATIONALA']."</td>
-                   <td>" . $row['CATEGORIE_COMUNITARA']."</td>
-                   <td>" . $row['MARCA']."</td>
-                   <td>" . $row['DESCRIERE_COMERCIALA']."</td>
-                   <td>" . $row['TOTAL_VEHICULE']."</td></tr>";        
-     }
-    
-     echo "</tbody></table></div>";
-     
-} else {
-     echo "you have no records";
-}
-}
-*/
+?>

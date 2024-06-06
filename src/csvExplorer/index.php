@@ -42,8 +42,8 @@
                 <td>AUTODATA2011.csv</td>
                 <td>10 KB</td>
                 <td>
-                    <a href="#">Download</a> |
-                    <a href="../dataExplorer/index.php">Preview</a>
+                    <a href="#"  href="#" onclick="loadPage('/Proiect_TW/src/dataExplorer')">Download</a> |
+                    <a href="#"  href="#" onclick="loadPage('/Proiect_TW/src/dataExplorer')"">Preview</a>
                 </td>
             </tr>
             <tr>

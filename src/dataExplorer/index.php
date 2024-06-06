@@ -5,14 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoPark Smart Explorer</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dataExplorer/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400&family=Tilt+Neon&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="navBar">
-        <?php include '../common/navBar.php'; ?>
-    </div>
+
     <div id="wrap">
         <div class="container">
             <form class="form-horizontal" action="functions.php" method="post" name="upload_excel" enctype="multipart/form-data">
@@ -30,16 +28,17 @@
             $currentPage = isset($_GET['page']) ? $_GET['page'] : 1; // Current page number, default to 1
 
             // Display records with pagination
-            display_records_with_pagination($currentPage, $rowsPerPage);
+            $filters = array();
+            if (!empty($_GET['filter'])) {
+                parse_str($_GET['filter'], $filters);
+            }
+            display_records_with_pagination($currentPage, $rowsPerPage, $filters);
             ?>
         </div>
     </div>
     <div class="diagram-section">
         <div class="container">
             <h2>Example Diagram</h2>
-            <img src="diagram.png" alt="Example Diagram">
+            <img src="dataExplorer/diagram.png" alt="Example Diagram">
         </div>
     </div>
-</body>
-
-</html>
