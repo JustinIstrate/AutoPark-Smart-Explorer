@@ -29,14 +29,13 @@
 </head>
 
 <body>
-    <div class="navBar">
-        <?php include '../common/navBar.php'; ?>
-    </div>
+
     <div id="wrap">
         <div class="container">
             <form class="form-horizontal" action="functions.php" method="post" name="upload_excel" enctype="multipart/form-data">
                 <div class="form-group">
                     <input type="file" name="file" id="file" class="input-large">
+
                     <button type="button" class="btn btn-primary button-loading" data-loading-text="Loading..." onclick="showDropdown('Import')">Import As</button>
                     <button type="button" class="btn btn-success" onclick="showDropdown('Export')">Export As</button>
                     <div id="fileTypeDropdown" class="dropdown-menu">
@@ -87,9 +86,8 @@
     <div class="diagram-section">
         <div class="container">
             <h2>Example Diagram</h2>
-            <img src="diagram.png" alt="Example Diagram">
+            <img src="dataExplorer/diagram.png" alt="Example Diagram">
         </div>
     </div>
 </body>
-
 </html>

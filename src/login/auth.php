@@ -1,5 +1,5 @@
 <?php
-include ('connection.php');
+include('connection.php');
 $username = $_POST['first'];
 $password = $_POST['password'];
 
@@ -27,6 +27,5 @@ if ($count == 1) {
 } else {
     session_start();
     $_SESSION['message'] = "Login failed. Invalid username or password.";
-    header("Location: form.php");
+    header("Location: index.php");
 }
-?>

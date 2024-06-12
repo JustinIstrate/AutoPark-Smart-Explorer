@@ -7,6 +7,7 @@ function get_total_rows_in_database() {
     $sql = "SELECT COUNT(*) as total FROM parcauto2018";
     $result = $conn->query($sql);
 
+
     if (!$result) {
         die("Error: " . $sql . "<br>" . $conn->error);
     }
@@ -19,6 +20,7 @@ function get_total_rows_in_database() {
     // Return the total number of rows
     return $row['total'];
 }
+
 
 // Function to calculate the total number of pages
 function calculate_total_pages($rowsPerPage) {
