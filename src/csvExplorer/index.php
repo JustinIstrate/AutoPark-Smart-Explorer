@@ -35,45 +35,29 @@
                 <button class="button">Apply Filter</button>
             </div>
         </div>
+
         <!-- CSV File List -->
         <table>
-            <tr1>
+            <tr>
                 <th>File Name</th>
-                <th>Size</th>
                 <th>Actions</th>
-            </tr1>
-            <tr>
-                <td>AUTODATA2011.csv</td>
-                <td>10 KB</td>
-                <td>
-                    <a href="#">Download</a> |
-                    <a href="../dataExplorer/index.php">Preview</a>
-                </td>
             </tr>
-            <tr>
-                <td>AUTODATA2012.csv</td>
-                <td>15 KB</td>
-                <td>
-                    <a href="#">Download</a> |
-                    <a href="../dataExplorer/index.php">Preview</a>
-                </td>
-            </tr>
-            <tr>
-                <td>AUTODATA2013.csv</td>
-                <td>14 KB</td>
-                <td>
-                    <a href="#">Download</a> |
-                    <a href="../dataExplorer/index.php">Preview</a>
-                </td>
-            </tr>
-            <tr>
-                <td>AUTODATA2013.csv</td>
-                <td>12 KB</td>
-                <td>
-                    <a href="#">Download</a> |
-                    <a href="../dataExplorer/index.php">Preview</a>
-                </td>
-            </tr>
+            <?php
+            require_once 'dataExplorer/databaseconn.php';
+            $conn = getdb();
+
+            // Query to get all table names
+            $result = mysqli_query($conn, "SHOW TABLES");
+            while ($row = mysqli_fetch_array($result)) {
+                $tableName = $row[0];
+                echo "<tr>
+                        <td>{$tableName}</td>
+                        <td>
+                            <a href=\"../dataExplorer/index.php?table_name={$tableName}\">Preview</a>
+                        </td>
+                    </tr>";
+            }
+            ?>
         </table>
     </div>
 </body>

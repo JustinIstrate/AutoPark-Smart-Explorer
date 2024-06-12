@@ -4,7 +4,7 @@ require_once "databaseconn.php";
 // Function to get the total number of rows in the database
 function get_total_rows_in_database() {
     $conn = getdb();
-    $sql = "SELECT COUNT(*) as total FROM autoparkdatabase";
+    $sql = "SELECT COUNT(*) as total FROM parcauto2018";
     $result = $conn->query($sql);
 
     if (!$result) {
@@ -29,7 +29,7 @@ function calculate_total_pages($rowsPerPage) {
 function get_all_records($currentPage, $rowsPerPage) {
     $conn = getdb();
     $offset = ($currentPage - 1) * $rowsPerPage;
-    $sql = "SELECT * FROM autoparkdatabase LIMIT ?, ?";
+    $sql = "SELECT * FROM parcauto2018 LIMIT ?, ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ii", $offset, $rowsPerPage);
     $stmt->execute();
