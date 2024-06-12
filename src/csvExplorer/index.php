@@ -43,7 +43,7 @@
                 <th>Actions</th>
             </tr>
             <?php
-            require_once 'dataExplorer/databaseconn.php';
+            require_once '../dataExplorer/databaseconn.php';
             $conn = getdb();
 
             // Query to get all table names
