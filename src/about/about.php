@@ -55,6 +55,12 @@
         <p>Users can preview data from CSV files.</p>
         <p>Includes graphical representations of the data, such as charts or graphs.</p>
     </section>
+
+    <!-- Admin Login Page -->
+    <section>
+        <h3>Admin page</h3>
+        <p>Admin login feature to manage and import CSV files.</p> 
+    </section>
         </section>
 
         <section id="technologies-stack">
@@ -76,11 +82,11 @@
 
         <section id="functional-requirements">
             <h2>4. Functional requirements</h2>
-            <h3>Home Page</h3>
-            <h3>CSV Explorer Page</h3>
-            <h3>Data Explorer Page</h3>
-            <h3>Admin Login Page</h3>
-            <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</h3>
+            <h3>Admin login & data import</h3>
+            <h3>Data export</h3>
+            <h3>CSV Searching and filtering (Not done yet)</h3>
+            <h3>Data generated graphs (Not done yet)</h3>
+            
         </section>
 
         <section id="other-requirements">
@@ -100,7 +106,6 @@
 
         <section id="bonuses">
             <h2>6.Bonuses</h2>
-           <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</h3>
         </section>
     </div>
 
