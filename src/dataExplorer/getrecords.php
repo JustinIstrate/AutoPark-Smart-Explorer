@@ -1,87 +1,66 @@
 <?php
-function get_records_from_csv($startRow, $rowsPerPage, $filters = array())
-{
-    $file = fopen("parcauto2016.csv", "r"); // Open the CSV file for reading
-    $data = array(); // Initialize an empty array to store the data
-    $header = fgetcsv($file); // Read the header row from the CSV file
+require_once "databaseconn.php";
 
-    // Initialize a counter for the number of rows processed
-    $rowCount = 0;
+// Function to get the total number of rows in the database
+function get_total_rows_in_database() {
+    $conn = getdb();
+    $sql = "SELECT COUNT(*) as total FROM parcauto2018";
+    $result = $conn->query($sql);
 
-    // Read each row from the CSV file until reaching the desired start row
-    while ($rowCount < $startRow && ($row = fgetcsv($file)) !== false) {
-        // Check if row matches filters
-        if (matchesFilters($row, $filters)) {
-            $rowCount++;
-        }
+
+    if (!$result) {
+        die("Error: " . $sql . "<br>" . $conn->error);
     }
 
-    // Read and store the rows corresponding to the desired number of rows per page
-    while ($rowCount < $startRow + $rowsPerPage && ($row = fgetcsv($file)) !== false) {
-        // Check if row matches filters
-        if (matchesFilters($row, $filters)) {
-            $data[] = $row; // Add the row to the data array
-            $rowCount++;
-        }
-    }
+    $row = $result->fetch_assoc();
 
-    fclose($file); // Close the file handle
+    // Close connection
+    $conn->close();
 
-    // Return the data array along with the header
-    return array($header, $data);
+    // Return the total number of rows
+    return $row['total'];
 }
 
-// Function to check if a row matches given filters
-function matchesFilters($row, $filters)
-{
-    // Example implementation: Check if the row matches filter conditions
-    // Replace this with your actual filter logic based on your CSV structure
-    foreach ($filters as $key => $value) {
-        if (!isset($row[$key]) || strpos(strtolower($row[$key]), strtolower($value)) === false) {
-            return false;
-        }
-    }
-    return true;
+
+// Function to calculate the total number of pages
+function calculate_total_pages($rowsPerPage) {
+    $totalRows = get_total_rows_in_database();
+    return ceil($totalRows / $rowsPerPage);
 }
 
-function display_records_with_pagination($currentPage, $rowsPerPage, $filters = array())
-{
-    // Calculate the start row based on the current page number and the rows per page
-    $startRow = ($currentPage - 1) * $rowsPerPage + 1;
-
-    // Call the function to get records from the CSV file with pagination and filters
-    list($header, $records) = get_records_from_csv($startRow, $rowsPerPage, $filters);
-
-    // Output the header
-    echo "<table><tr>";
-    foreach ($header as $cell) {
-        echo "<th>" . htmlspecialchars($cell) . "</th>";
-    }
-    echo "</tr>";
-
-    // Output the records in a table format
-    foreach ($records as $row) {
-        echo "<tr>";
-        foreach ($row as $cell) {
-            echo "<td>" . htmlspecialchars($cell) . "</td>";
+function get_all_records($currentPage, $rowsPerPage) {
+    $conn = getdb();
+    $offset = ($currentPage - 1) * $rowsPerPage;
+    $sql = "SELECT * FROM parcauto2018 LIMIT ?, ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $offset, $rowsPerPage);
+    $stmt->execute();
+    $result = $stmt->get_result();  
+    
+    if (mysqli_num_rows($result) > 0) {
+        echo "<div class='table-responsive'><table id='myTable' class='table table-striped table-bordered'>
+                 <thead><tr><th>JUDET</th>
+                              <th>CATEGORIE_NATIONALA</th>
+                              <th>CATEGORIE_COMUNITARA</th>
+                              <th>MARCA</th>
+                              <th>DESCRIERE_COMERCIALA</th>
+                              <th>TOTAL_VEHICULE</th>
+                            </tr></thead><tbody>";
+        while($row = mysqli_fetch_assoc($result)) {
+            echo "<tr><td>" . $row['JUDET'] . "</td>
+                      <td>" . $row['CATEGORIE_NATIONALA'] . "</td>
+                      <td>" . $row['CATEGORIE_COMUNITARA'] . "</td>
+                      <td>" . $row['MARCA'] . "</td>
+                      <td>" . $row['DESCRIERE_COMERCIALA'] . "</td>
+                      <td>" . $row['TOTAL_VEHICULE'] . "</td></tr>";        
         }
-        echo "</tr>";
+        echo "</tbody></table></div>";
+        
+    } else {
+        echo "You have no records.";
     }
-    echo "</table>";
 
-    // Display next and previous page buttons with filters
-    $queryFilters = http_build_query($filters); // Convert filters to URL query string
-
-    $totalRows = count(file("parcauto2016.csv")); // Get total number of rows in the CSV file
-    $totalPages = ceil($totalRows / $rowsPerPage); // Calculate total number of pages
-
-    echo '<div class="pagination">';
-    if ($currentPage > 1) {
-        echo '<a href="?page=' . ($currentPage - 1) . '&' . $queryFilters . '">Previous</a>';
-    }
-    if ($currentPage < $totalPages) {
-        echo '<a href="?page=' . ($currentPage + 1) . '&' . $queryFilters . '">Next</a>';
-    }
-    echo '</div>';
+    $stmt->close();
+    $conn->close();
 }
 ?>
