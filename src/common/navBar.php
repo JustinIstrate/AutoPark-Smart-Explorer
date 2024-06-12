@@ -11,7 +11,7 @@
         </span>
 
         <ul>
-            <li><a href="#" onclick="loadPage('/Proiect_TW/src/homePage/'); return false;">Home</a></li>
+            <li><a href="homePage" >Home</a></li>
             <li><a href="#" onclick="loadPage('/Proiect_TW/src/csvExplorer'); return false;">CSV Explorer</a></li>
             <li><a href="#" onclick="loadPage('/Proiect_TW/src/login'); return false;">Admin</a></li>
             <li><a href="#" onclick="loadPage('/Proiect_TW/src/about'); return false;">About</a></li>

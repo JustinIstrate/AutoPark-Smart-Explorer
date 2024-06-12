@@ -29,7 +29,7 @@
 </head>
 
 <body>
-
+    <?php include 'common/navBar.php'; ?>
     <div id="wrap">
         <div class="container">
             <form class="form-horizontal" action="functions.php" method="post" name="upload_excel" enctype="multipart/form-data">

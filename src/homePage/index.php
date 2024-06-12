@@ -4,13 +4,14 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoPark Smart Explorer</title>
-    <link rel="stylesheet" href="homePage/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400&family=Tilt+Neon&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <?php include '../common/navBar.php'; ?>
     <section class="header">
         <div class="text-box">
             <h1>AutoPark Smart Explorer</h1>
