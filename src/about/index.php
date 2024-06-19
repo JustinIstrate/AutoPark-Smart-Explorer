@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IEEE System Requirements Specification</title>
-    <link rel="stylesheet" href="about/styles.css">
+    <title>About</title>
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400&family=Tilt+Neon&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <?php include '../common/navBar.php'; ?>
     <div class="container">
         <header>
             <h1>AutoPark Smart Explorer Documentation</h1>

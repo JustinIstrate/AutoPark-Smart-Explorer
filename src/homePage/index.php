@@ -16,7 +16,7 @@
         <div class="text-box">
             <h1>AutoPark Smart Explorer</h1>
             <p>The website aims to provide a platform for users to explore and interact with CSV,WebP and SVG files regarding automotive data. </br>The project was done by Justin-Gheorhe Istrate and Chiriac Serban-Mihail under UAIC Computer Science University from Iasi.</p>
-            <a href="#" onclick="loadPage('/Proiect_TW/src/about')" class="hero-btn">Check the docs here.</a>
+            <a href="/Proiect_TW/src/about" class="hero-btn">Check the docs here.</a>
         </div>
     </section>
 </body>

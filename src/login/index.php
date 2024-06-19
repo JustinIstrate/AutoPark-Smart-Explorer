@@ -6,12 +6,13 @@ session_start();
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="login/form.css" />
+    <link rel="stylesheet" href="form.css" />
     <title>AutoPark Smart Explorer</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400&family=Tilt+Neon&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <?php include '../common/navBar.php'; ?>
     <div class="main">
         <h8>Are you an admin?</h8>
         <p class="description">As an admin you can import data for the website.Please enter your credentials below.</p>

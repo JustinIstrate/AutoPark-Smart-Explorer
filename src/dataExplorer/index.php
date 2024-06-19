@@ -8,8 +8,13 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400&family=Tilt+Neon&display=swap" rel="stylesheet">
     <style>
-        .dropdown-menu { display: none; }
-        .show { display: block; }
+        .dropdown-menu {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
     </style>
     <script>
         function showDropdown(type) {
@@ -51,7 +56,7 @@
             </form>
             <?php
             require_once "getrecords.php"; // Include the PHP file where your functions are defined
-            
+
             // Get the current page number
             $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
 
@@ -64,20 +69,20 @@
             // Display records with pagination
             get_all_records($currentPage, $rowsPerPage);
             ?>
-            
+
             <!-- Pagination -->
             <div class="pagination">
-                <?php if ($currentPage > 1): ?>
+                <?php if ($currentPage > 1) : ?>
                     <a href="?page=<?php echo ($currentPage - 1); ?>">Previous</a>
                 <?php endif; ?>
-                
+
                 <select id="pageDropdown" onchange="window.location.href = '?page=' + this.value;">
-                    <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                    <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
                         <option value="<?php echo $i; ?>" <?php if ($i == $currentPage) echo 'selected'; ?>><?php echo $i; ?></option>
                     <?php endfor; ?>
                 </select>
-                
-                <?php if ($currentPage < $totalPages): ?>
+
+                <?php if ($currentPage < $totalPages) : ?>
                     <a href="?page=<?php echo ($currentPage + 1); ?>">Next</a>
                 <?php endif; ?>
             </div>
@@ -90,4 +95,5 @@
         </div>
     </div>
 </body>
+
 </html>
