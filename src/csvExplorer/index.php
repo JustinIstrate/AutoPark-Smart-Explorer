@@ -44,13 +44,13 @@
             $conn = getdb();
 
             // Query to get all table names
-            $result = mysqli_query($conn, "SHOW TABLES");
+            $result = mysqli_query($conn, "SHOW TABLES LIKE 'parc%'");
             while ($row = mysqli_fetch_array($result)) {
                 $tableName = $row[0];
                 echo "<tr>
                         <td>{$tableName}</td>
                         <td>
-                            <a href=\"../dataExplorer/index.php?table_name={$tableName}\" class=\"action-link\">Preview</a>
+                            <a href=\"../dataExplorerUser/index.php?table_name={$tableName}\" class=\"action-link\">Preview</a>
                             <div class=\"dropdown\">
                                 <button class=\"dropbtn action-link\">Download</button>
                                 <div class=\"dropdown-content\">

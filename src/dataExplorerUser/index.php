@@ -41,7 +41,6 @@
                 <div class="form-group">
                     <input type="file" name="file" id="file" class="input-large">
 
-                    <button type="button" class="btn btn-primary button-loading" data-loading-text="Loading..." onclick="showDropdown('Import')">Import As</button>
                     <button type="button" class="btn btn-success" onclick="showDropdown('Export')">Export As</button>
                     <div id="fileTypeDropdown" class="dropdown-menu">
                         <select name="fileType" id="fileType" class="input-large" onchange="selectFileType()">
