@@ -4,7 +4,7 @@
 
 <nav>
     <div class="logo" id="logo">
-        <a href="/Proiect_TW/src/homePage">AutoPark Smart Explorer</a>
+        <a href="/Proiect_TW/src/homePage" class="logo">AutoPark Smart Explorer</a>
     </div>
     <div class="nav-links" id="navLinks">
         <span class="material-symbols-outlined" onclick="hideMenu()">

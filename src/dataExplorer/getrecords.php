@@ -2,9 +2,9 @@
 require_once "databaseconn.php";
 
 // Function to get the total number of rows in the database
-function get_total_rows_in_database() {
+function get_total_rows_in_database($tableName) {
     $conn = getdb();
-    $sql = "SELECT COUNT(*) as total FROM parcauto2018";
+    $sql = "SELECT COUNT(*) as total FROM $tableName";
     $result = $conn->query($sql);
 
 
@@ -23,15 +23,15 @@ function get_total_rows_in_database() {
 
 
 // Function to calculate the total number of pages
-function calculate_total_pages($rowsPerPage) {
-    $totalRows = get_total_rows_in_database();
+function calculate_total_pages($rowsPerPage, $tableName) {
+    $totalRows = get_total_rows_in_database($tableName);
     return ceil($totalRows / $rowsPerPage);
 }
 
-function get_all_records($currentPage, $rowsPerPage) {
+function get_all_records($currentPage, $rowsPerPage, $tableName) {
     $conn = getdb();
     $offset = ($currentPage - 1) * $rowsPerPage;
-    $sql = "SELECT * FROM parcauto2018 LIMIT ?, ?";
+    $sql = "SELECT * FROM $tableName LIMIT ?, ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ii", $offset, $rowsPerPage);
     $stmt->execute();
