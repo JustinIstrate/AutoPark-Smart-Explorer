@@ -50,7 +50,14 @@
                 echo "<tr>
                         <td>{$tableName}</td>
                         <td>
-                            <a href=\"../dataExplorer/index.php?table_name={$tableName}\">Preview</a>
+                            <a href=\"../dataExplorer/index.php?table_name={$tableName}\" class=\"action-link\">Preview</a>
+                            <div class=\"dropdown\">
+                                <button class=\"dropbtn action-link\">Download</button>
+                                <div class=\"dropdown-content\">
+                                    <a href=\"../csvExplorer/download.php?table_name={$tableName}&format=csv\" class=\"action-link\">CSV</a>
+                                    <a href=\"../csvExplorer/download.php?table_name={$tableName}&format=json\" class=\"action-link\">JSON</a>
+                                </div>
+                            </div>
                         </td>
                     </tr>";
             }

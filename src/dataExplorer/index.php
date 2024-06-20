@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <?php include 'common/navBar.php'; ?>
+    <?php include '../common/navBar.php'; ?>
     <div id="wrap">
         <div class="container">
             <form class="form-horizontal" action="functions.php" method="post" name="upload_excel" enctype="multipart/form-data">
@@ -56,7 +56,7 @@
             </form>
             <?php
             require_once "getrecords.php"; // Include the PHP file where your functions are defined
-
+            $tableName = isset($_GET['table_name']) ? $_GET['table_name'] : '';
             // Get the current page number
             $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
 
@@ -64,10 +64,10 @@
             $rowsPerPage = 15; // Number of rows per page
 
             // Calculate total pages
-            $totalPages = calculate_total_pages($rowsPerPage);
+            $totalPages = calculate_total_pages($rowsPerPage, $tableName);
 
             // Display records with pagination
-            get_all_records($currentPage, $rowsPerPage);
+            get_all_records($currentPage, $rowsPerPage, $tableName);
             ?>
 
             <!-- Pagination -->
@@ -91,7 +91,7 @@
     <div class="diagram-section">
         <div class="container">
             <h2>Example Diagram</h2>
-            <img src="dataExplorer/diagram.png" alt="Example Diagram">
+            <img src="../dataExplorer/diagram.png" alt="Example Diagram">
         </div>
     </div>
 </body>
