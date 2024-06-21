@@ -67,7 +67,7 @@
                 echo "<tr>
                         <td>{$tableName}</td>
                         <td>
-                            <a href=\"../dataExplorerUser/index.php?table_name={$tableName}\" class=\"action-link\">Preview</a>
+                            <a href=\"../dataExplorer/index.php?table_name={$tableName}\" class=\"action-link\">Preview</a>
                             <div class=\"dropdown\">
                                 <button class=\"dropbtn action-link\">Download</button>
                                 <div class=\"dropdown-content\">
