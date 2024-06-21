@@ -94,7 +94,9 @@
     <div class="container">
         <h1 style="color: white" ;>Chart of <?php echo htmlspecialchars($tableName); ?></h1>
         <?php if (!empty($data)) : ?>
-            <canvas id="myChart" width="400" height="200"></canvas>
+            <canvas id="barChart" width="500" height="400"></canvas>
+            <canvas id="dogChart" width="500" height="400"></canvas>
+            <canvas id="lineChart" width="500" height="400"></canvas>
         <?php else : ?>
             <p>No data available in this table.</p>
         <?php endif; ?>
