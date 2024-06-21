@@ -47,12 +47,12 @@ function get_all_records($currentPage, $rowsPerPage) {
                               <th>TOTAL_VEHICULE</th>
                             </tr></thead><tbody>";
         while($row = mysqli_fetch_assoc($result)) {
-            echo "<tr><td>" . $row['JUDET'] . "</td>
-                      <td>" . $row['CATEGORIE_NATIONALA'] . "</td>
-                      <td>" . $row['CATEGORIE_COMUNITARA'] . "</td>
-                      <td>" . $row['MARCA'] . "</td>
-                      <td>" . $row['DESCRIERE_COMERCIALA'] . "</td>
-                      <td>" . $row['TOTAL_VEHICULE'] . "</td></tr>";        
+            echo "<tr><td>" . $row['Judet'] . "</td>
+                      <td>" . $row['Categorie_Nationala'] . "</td>
+                      <td>" . $row['Categorie_Comunitara'] . "</td>
+                      <td>" . $row['Marca'] . "</td>
+                      <td>" . $row['Descriere_Comerciala'] . "</td>
+                      <td>" . $row['Total_Vehicule'] . "</td></tr>";        
         }
         echo "</tbody></table></div>";
         
@@ -63,4 +63,35 @@ function get_all_records($currentPage, $rowsPerPage) {
     $stmt->close();
     $conn->close();
 }
+
+function fetchTableData($tableName) {
+    $conn = getdb();
+
+    // Sanitize the table name to prevent SQL injection
+    $tableName = mysqli_real_escape_string($conn, $tableName);
+
+    // specific query for making chart
+    $sql = "SELECT Judet, SUM(Total_Vehicule) as Total_Vehicule FROM $tableName GROUP BY Judet";
+    $result = $conn->query($sql);
+
+    $data = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+    }
+
+    $conn->close();
+    return $data;
+}
+
+if (isset($_GET['table_name'])) {
+    $tableName = $_GET['table_name'];
+    $data = fetchTableData($tableName);
+} else {
+    die("No table name provided.");
+}
+
+// Convert PHP array to JSON
+$jsonData = json_encode($data);
 ?>

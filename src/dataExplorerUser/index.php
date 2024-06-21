@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoPark Smart Explorer</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts.js/charts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400&family=Tilt+Neon&display=swap" rel="stylesheet">
     <style>
         .dropdown-menu {
@@ -87,12 +90,19 @@
             </div>
         </div>
     </div>
-    <div class="diagram-section">
-        <div class="container">
-            <h2>Example Diagram</h2>
-            <img src="../dataExplorer/diagram.png" alt="Example Diagram">
-        </div>
+
+    <div class="container">
+        <h1 style="color: white" ;>Chart of <?php echo htmlspecialchars($tableName); ?></h1>
+        <?php if (!empty($data)) : ?>
+            <canvas id="myChart" width="400" height="200"></canvas>
+        <?php else : ?>
+            <p>No data available in this table.</p>
+        <?php endif; ?>
     </div>
+    <script>
+        const chartData = <?php echo $jsonData; ?>;
+    </script>
+
 </body>
 
 </html>
