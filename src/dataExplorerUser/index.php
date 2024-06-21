@@ -7,7 +7,6 @@
     <title>AutoPark Smart Explorer</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="scripts.js/charts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400&family=Tilt+Neon&display=swap"
@@ -142,17 +141,23 @@
         <div class="chart-container">
             <div id="barChartSection" class="chart-section"> <!-- Unique ID for bar chart section -->
                 <canvas id="barChart" width="500" height="400"></canvas>
+                <button id="bexportWebP">Export as WebP</button>
+                <button id="bexportSVG">Export as SVG</button>
             </div>
             <div id="dogChartSection" class="chart-section"> <!-- Unique ID for doughnut chart section -->
                 <canvas id="dogChart" width="500" height="400"></canvas>
+                <button id="dexportWebP">Export as WebP</button>
+                <button id="dexportSVG">Export as SVG</button>
             </div>
             <div id="lineChartSection" class="chart-section"> <!-- Unique ID for line chart section -->
                 <canvas id="lineChart" width="500" height="400"></canvas>
+                <button id="lexportWebP">Export as WebP</button>
+                <button id="lexportSVG">Export as SVG</button>
             </div>
         </div>
     </div>
 
-
+    <script src="scripts.js/charts.js"></script>        <!-- the dom should render and then the script -->         
     <script>
         const chartData = <?php echo $jsonData; ?>;
     </script>

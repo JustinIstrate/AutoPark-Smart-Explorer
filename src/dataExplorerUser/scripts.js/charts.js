@@ -147,3 +147,99 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Export barChart as WEBP , SVG
+document.getElementById('bexportWebP').addEventListener('click', () => {
+    const canvas = document.getElementById('barChart');
+    canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'barChart.webp';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }, 'image/webp');
+});
+
+document.getElementById('bexportSVG').addEventListener('click', () => {
+    const canvas = document.getElementById('barChart');
+    const img = canvas.toDataURL('image/png');
+    const svgData = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}">
+            <image href="${img}" width="${canvas.width}" height="${canvas.height}" />
+        </svg>
+    `;
+    const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(svgBlob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'barchart.svg';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+});
+
+// Export doughnutChart as WEBP , SVG
+document.getElementById('dexportWebP').addEventListener('click', () => {
+    const canvas = document.getElementById('dogChart');
+    canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'doughtnutChart.webp';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }, 'image/webp');
+});
+
+document.getElementById('dexportSVG').addEventListener('click', () => {
+    const canvas = document.getElementById('dogChart');
+    const img = canvas.toDataURL('image/png');
+    const svgData = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}">
+            <image href="${img}" width="${canvas.width}" height="${canvas.height}" />
+        </svg>
+    `;
+    const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(svgBlob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'doughnutchart.svg';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+});
+
+// Export lineChart as WEBP , SVG
+document.getElementById('lexportWebP').addEventListener('click', () => {
+    const canvas = document.getElementById('lineChart');
+    canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'lineChart.webp';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }, 'image/webp');
+});
+
+document.getElementById('lexportSVG').addEventListener('click', () => {
+    const canvas = document.getElementById('lineChart');
+    const img = canvas.toDataURL('image/png');
+    const svgData = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}">
+            <image href="${img}" width="${canvas.width}" height="${canvas.height}" />
+        </svg>
+    `;
+    const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(svgBlob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'linechart.svg';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+});
