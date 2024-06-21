@@ -7,6 +7,7 @@
     <title>AutoPark Smart Explorer</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts.js/charts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400&family=Tilt+Neon&display=swap" rel="stylesheet">
     <style>
@@ -99,42 +100,7 @@
         <?php endif; ?>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let myChart = null;
-            const chartData = <?php echo $jsonData; ?>;
-            if (chartData.length > 0) {
-                // Assuming we are plotting 'Total_Vehicule' against some categorical data
-                const labels = ["Judet","Categorie_Nationala","Marca"]; // Change 'Judet' to the desired column for x-axis
-                const data = chartData.map(item => item.Total_Vehicule); // Change 'Total_Vehicule' to the desired column for y-axis
-
-                const ctx = document.getElementById('myChart').getContext('2d');
-                if (myChart) {
-                    myChart.destroy(); // Destroy existing chart if it exists
-                }
-                myChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Total Vehicles',
-                            data: data,
-                            backgroundColor: 'rgba(75, 192, 192, 0.6)',
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: false,
-                        maintainAspectRatio: false,
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            }
-        });
+        const chartData = <?php echo $jsonData; ?>;
     </script>
 
 </body>
