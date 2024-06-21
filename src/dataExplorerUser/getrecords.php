@@ -47,12 +47,12 @@ function get_all_records($currentPage, $rowsPerPage, $tableName) {
                               <th>TOTAL_VEHICULE</th>
                             </tr></thead><tbody>";
         while($row = mysqli_fetch_assoc($result)) {
-            echo "<tr><td>" . $row['Judet'] . "</td>
-                      <td>" . $row['Categorie_Nationala'] . "</td>
-                      <td>" . $row['Categorie_Comunitara'] . "</td>
-                      <td>" . $row['Marca'] . "</td>
-                      <td>" . $row['Descriere_Comerciala'] . "</td>
-                      <td>" . $row['Total_Vehicule'] . "</td></tr>";        
+            echo "<tr><td>" . $row['JUDET'] . "</td>
+                      <td>" . $row['CATEGORIE_NATIONALA'] . "</td>
+                      <td>" . $row['CATEGORIE_COMUNITARA'] . "</td>
+                      <td>" . $row['MARCA'] . "</td>
+                      <td>" . $row['DESCRIERE_COMERCIALA'] . "</td>
+                      <td>" . $row['TOTAL_VEHICULE'] . "</td></tr>";        
         }
         echo "</tbody></table></div>";
         
@@ -71,7 +71,7 @@ function fetchTableData($tableName) {
     $tableName = mysqli_real_escape_string($conn, $tableName);
 
     // specific query for making chart
-    $sql = "SELECT Judet, SUM(Total_Vehicule) as Total_Vehicule FROM $tableName GROUP BY Judet";
+    $sql = "SELECT JUDET, SUM(TOTAL_VEHICULE) as TOTAL_VEHICULE FROM $tableName GROUP BY JUDET";
     $result = $conn->query($sql);
 
     $data = [];

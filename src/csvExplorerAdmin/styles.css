@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Tilt Neon", sans-serif;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+    url(../homePage/background.jpg);
+  background-position: center top;
+  background-size: cover;
+}
+
+.container {
+  max-width: 800px;
+  margin: 5% auto;
+  background-color: rgba(128, 128, 128, 0.9);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.container h1 {
+  text-align: center;
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  color: white;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: black;
+}
+
+a[href="#"]:link,
+a[href="#"]:visited,
+a[href="../dataExplorer/index.php"]:link,
+a[href="../dataExplorer/index.php"]:visited {
+  color: #4caf50;
+}
+
+a[href="#"]:hover,
+a[href="../dataExplorer/index.php"]:hover {
+  color: #45a049;
+}
+
+.csv-list-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-container,
+.filter-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container input[type="text"] {
+  padding: 10px;
+  margin-right: 10px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.filter-container select {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+.action-link {
+  color: #4caf50;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.action-link:hover {
+  color: #45a049; /* Green on hover */
+}
+/* Dropdown Menu */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropbtn {
+  background: none;
+  color: #4caf50;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(128, 128, 128, 0.9);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 4px;
+}
+
+.dropdown-content a:hover {
+  background-color: #4caf50;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+  cursor: pointer;
+  color: #4caf50;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.material-symbols-outlined:hover {
+  color:red;
+}
+.logout-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+.logout-button a {
+  display: inline-block;
+  background-color: #4caf50; /* Background color for the button */
+  padding: 10px; /* Adjust padding as needed */
+  border-radius: 4px; /* Make it circular */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
+  text-decoration: none; /* Remove underline */
+}
+
+.logout-button a:hover {
+  background-color: red; /* Hover background color */
+}
+
+.logout-button a .logout-icon {
+  font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+  font-size: 24px; /* Adjust icon size */
+  vertical-align: middle;
+  font-family: 'Material Symbols Outlined'; /* Ensure correct font family */
+  color: white; /* Color for logout icon */
+}
