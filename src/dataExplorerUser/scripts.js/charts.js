@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let myChart = null;
     if (chartData.length > 0) {
 
-        const labels = ["Judet","Categorie_Nationala","Marca"]; //  x-axis
-        const data = chartData.map(item => item.Total_Vehicule); //  y-axis
+        const labels = ["JUDET","CATEGORIE_NATIONALA","MARCA"]; //  x-axis
+        const data = chartData.map(item => item.TOTAL_VEHICULE); //  y-axis
 
         const ctx = document.getElementById('myChart').getContext('2d');
         if (myChart) {
