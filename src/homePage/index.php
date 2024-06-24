@@ -3,7 +3,8 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoPark Smart Explorer</title>
+    <title>AutoPark Home</title>
+    <link rel="icon" href="../common/carr.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +16,7 @@
     <section class="header">
         <div class="text-box">
             <h1>AutoPark Smart Explorer</h1>
-            <p>The website aims to provide a platform for users to explore and interact with CSV,WebP and SVG files regarding automotive data. </br>The project was done by Justin-Gheorhe Istrate and Chiriac Serban-Mihail under UAIC Computer Science University from Iasi.</p>
+            <p>The website aims to provide a platform for users to explore and interact with CSV,WebP and SVG files regarding automotive data. </br>The project was done by Justin-Gheorghe Istrate and Chiriac Serban-Mihail under UAIC Computer Science University from Iasi.</p>
             <a href="/Proiect_TW/src/about" class="hero-btn">Check the docs here.</a>
         </div>
     </section>

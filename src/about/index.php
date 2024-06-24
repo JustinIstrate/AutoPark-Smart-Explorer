@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
+    <link rel="icon" href="../common/carr.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400&family=Tilt+Neon&display=swap" rel="stylesheet">
 </head>
@@ -29,7 +30,7 @@
 
         <section id="introduction">
             <h2>1. Introduction</h2>
-            <p> The website aims to provide a platform for users to explore and interact with CSV files regarding automotive data, as well as view data and graphics related to these files. Additionally, an admin login feature will allow administrators to manage and import CSV documents.</p>
+            <p> The website aims to provide a platform for users to explore and interact with <i>large files </i>regarding automotive data, as well as <i>view</i> and <i>download</i> data (<i> CSV </i> or <i> JSON </i>) and graphics (that can be exported as <i>SVG</i> or <i>WebP</i>) related to these files. Additionally, an <i>admin login</i> feature will allow administrators to manage and import documents.</p>
         </section>
 
         <section id="pages">
@@ -40,24 +41,28 @@
                 <p>Display information about the website's purpose and features.</p>
             </section>
 
-            <!-- CSV Explorer Page -->
-            <section>
-                <h3>CSV Explorer Page</h3>
-                <p>Allows users to view a list of CSV documents.</p>
-                <p>Provides options to download or preview the contents of each CSV file.</p>
-            </section>
-
             <!-- Data Explorer Page -->
             <section>
                 <h3>Data Explorer Page</h3>
+                <p>Allows users to view, search or filter a list of CSV documents.</p>
+                <p>Provides options to download or preview the contents of each file.</p>
+                <p>Additionaly if you are logged in as a admin you can also erase a document from the data base.</p>
+            </section>
+
+            <!-- Data Preview Page -->
+            <section>
+                <h3>Data Preview Page</h3>
                 <p>Users can preview data from CSV files.</p>
-                <p>Includes graphical representations of the data, such as charts or graphs.</p>
+                <p>Includes graphical representations of the data, more exactly 3 types of charts: bar, doughnut and line charts.</p>
+                <p>Normal users can only export data from here as CSV or JSON.</p>
+                <p>Admins can also import.</p>
             </section>
 
             <!-- Admin Login Page -->
             <section>
                 <h3>Admin page</h3>
                 <p>Admin login feature to manage and import CSV files.</p>
+                <p><mark>Default credentials </mark>: admin - password.</p>
             </section>
         </section>
 
@@ -81,9 +86,9 @@
         <section id="functional-requirements">
             <h2>4. Functional requirements</h2>
             <h3>Admin login & data import</h3>
-            <h3>Data export</h3>
-            <h3>CSV Searching and filtering (Not done yet)</h3>
-            <h3>Data generated graphs (Not done yet)</h3>
+            <h3>Data export as CSV or JSON</h3>
+            <h3>Data list Searching and filtering (Not done yet)</h3>
+            <h3>Data generated graphs & data preview</h3>
 
         </section>
 
@@ -104,6 +109,8 @@
 
         <section id="bonuses">
             <h2>6.Bonuses</h2>
+            <p><i>Data Base Migration.</i> For a easier set-up we added some default data the user can use with this command executed in the terminal:
+               <mark> mysql -u root -p < migration.sql </mark>.</p>
         </section>
     </div>
 
