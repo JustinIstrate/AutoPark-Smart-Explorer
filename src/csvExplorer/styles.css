@@ -8,8 +8,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   overflow-x: hidden;
-  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
-    url(../homePage/background.jpg);
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../homePage/background.jpg);
   background-position: center top;
   background-size: cover;
 }
@@ -68,7 +67,7 @@ a[href="../dataExplorer/index.php"]:hover {
 }
 
 .search-container,
-.filter-container {
+.sort-container {
   display: flex;
   align-items: center;
 }
@@ -82,7 +81,7 @@ a[href="../dataExplorer/index.php"]:hover {
   box-sizing: border-box;
 }
 
-.filter-container select {
+.sort-container select {
   padding: 10px;
   margin-right: 10px;
   border: 1px solid #ccc;
@@ -102,6 +101,7 @@ a[href="../dataExplorer/index.php"]:hover {
 .button:hover {
   background-color: #45a049;
 }
+
 .action-link {
   color: #4caf50;
   text-decoration: none;
@@ -109,9 +109,9 @@ a[href="../dataExplorer/index.php"]:hover {
 }
 
 .action-link:hover {
-  color: #45a049; /* Green on hover */
+  color: #45a049;
 }
-/* Dropdown Menu */
+
 .dropdown {
   display: inline-block;
   position: relative;

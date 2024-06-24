@@ -7,6 +7,8 @@
     <title>AutoPark Smart Explorer</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400&family=Tilt+Neon&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <style>
         .dropdown-menu {
             display: none;
@@ -14,6 +16,38 @@
 
         .show {
             display: block;
+        }
+        .chart-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .chart-container canvas {
+            margin: 20px auto;
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .chart-buttons {
+            margin-bottom: 20px;
+        }
+
+        .chart-buttons button {
+            margin: 0 10px;
+        }
+
+        .chart-section {
+            display: none;
+            /* Initially hide all chart sections */
+        }
+
+        .chart-section.active {
+            display: block;
+            /* Show the active chart section */
         }
     </style>
     <script>
@@ -55,7 +89,7 @@
                 </div>
             </form>
             <?php
-            require_once "getrecords.php"; // Include the PHP file where your functions are defined
+            require_once "../dataExplorerUser/getrecords.php"; // Include the PHP file where your functions are defined
             $tableName = isset($_GET['table_name']) ? $_GET['table_name'] : '';
             // Get the current page number
             $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -88,12 +122,35 @@
             </div>
         </div>
     </div>
-    <div class="diagram-section">
-        <div class="container">
-            <h2>Example Diagram</h2>
-            <img src="../dataExplorer/diagram.png" alt="Example Diagram">
+    <div class="chart-container crt">
+        <div class="chart-buttons">
+            <button id="showBarChart" class="btn btn-primary">Show Bar Chart</button>
+            <button id="showDoughnutChart" class="btn btn-primary">Show Doughnut Chart</button>
+            <button id="showLineChart" class="btn btn-primary">Show Line Chart</button>
+        </div>
+
+        <div class="chart-container">
+            <div id="barChartSection" class="chart-section"> <!-- Unique ID for bar chart section -->
+                <canvas id="barChart" width="500" height="400"></canvas>
+                <button id="bexportWebP">Export as WebP</button>
+                <button id="bexportSVG">Export as SVG</button>
+            </div>
+            <div id="dogChartSection" class="chart-section"> <!-- Unique ID for doughnut chart section -->
+                <canvas id="dogChart" width="500" height="400"></canvas>
+                <button id="dexportWebP">Export as WebP</button>
+                <button id="dexportSVG">Export as SVG</button>
+            </div>
+            <div id="lineChartSection" class="chart-section"> <!-- Unique ID for line chart section -->
+                <canvas id="lineChart" width="500" height="400"></canvas>
+                <button id="lexportWebP">Export as WebP</button>
+                <button id="lexportSVG">Export as SVG</button>
+            </div>
         </div>
     </div>
+    <script src="charts.js"></script> <!-- the dom should render and then the script -->
+    <script>
+        const chartData = <?php echo $jsonData; ?>;
+    </script>
 </body>
 
 </html>

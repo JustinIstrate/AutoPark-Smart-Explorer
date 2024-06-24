@@ -81,7 +81,7 @@ if (isset($_POST["Import"])) {
                 fclose($handle);
                 echo "<script type=\"text/javascript\">
                 alert(\"File successfully imported.\");
-                window.location = \"index.php\";
+                window.location = \"index.php?table_name=$table_name\";
               </script>";
             }
         } elseif ($fileType == "json") {
@@ -111,7 +111,7 @@ if (isset($_POST["Import"])) {
                 mysqli_commit($conn);
                 echo "<script type=\"text/javascript\">
                 alert(\"File successfully imported.\");
-                window.location = \"index.php\";
+                window.location = \"index.php?table_name=$table_name\";
               </script>";
             }
         }
