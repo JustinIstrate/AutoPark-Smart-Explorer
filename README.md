@@ -22,3 +22,5 @@ Admin login <br />
 About Page <br/>
 ![alt text](https://github.com/seerbann/Proiect_TW/blob/main/screenshots/AboutPage.PNG)
 <br/>
+## Video
+![alt text](https://github.com/seerbann/Proiect_TW/blob/main/screenshots/Demo.mp4)
