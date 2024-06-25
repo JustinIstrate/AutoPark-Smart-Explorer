@@ -23,4 +23,4 @@ About Page <br/>
 ![alt text](https://github.com/seerbann/Proiect_TW/blob/main/screenshots/AboutPage.PNG)
 <br/>
 ## Video
-![alt text](https://youtu.be/9AQoQCbZEFQ)
+https://youtu.be/9AQoQCbZEFQ
