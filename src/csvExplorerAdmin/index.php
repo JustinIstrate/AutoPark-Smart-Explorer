@@ -81,7 +81,7 @@
     <div class="container">
         <h1>CSV Explorer</h1>
         <div class="csv-list-container">
-            <!-- Search and Import Bar -->
+            
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="Search...">
                 <button class="button" onclick="filterTable()">Search</button>
