@@ -13,7 +13,8 @@ if (isset($_SESSION['username'])) {
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="form.css" />
-    <title>AutoPark Smart Explorer</title>
+    <title>AutoPark Login</title>
+    <link rel="icon" href="../common/carr.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400&family=Tilt+Neon&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
