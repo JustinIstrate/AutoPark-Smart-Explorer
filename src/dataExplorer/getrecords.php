@@ -63,4 +63,5 @@ function get_all_records($currentPage, $rowsPerPage, $tableName) {
     $stmt->close();
     $conn->close();
 }
+$jsonData = json_encode($data);
 ?>

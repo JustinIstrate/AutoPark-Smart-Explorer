@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400&family=Tilt+Neon&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400&family=Tilt+Neon&display=swap" rel="stylesheet">
     <style>
         .dropdown-menu {
             display: none;
@@ -75,11 +73,8 @@
     <?php include '../common/navBar.php'; ?>
     <div id="wrap">
         <div class="container">
-            <form class="form-horizontal" action="functions.php" method="post" name="upload_excel"
-                enctype="multipart/form-data">
+            <form class="form-horizontal" action="functions.php" method="post" name="upload_excel" enctype="multipart/form-data">
                 <div class="form-group">
-                    <input type="file" name="file" id="file" class="input-large">
-
                     <button type="button" class="btn btn-success" onclick="showDropdown('Export')">Export As</button>
                     <div id="fileTypeDropdown" class="dropdown-menu">
                         <select name="fileType" id="fileType" class="input-large" onchange="selectFileType()">
@@ -88,10 +83,7 @@
                             <option value="json">JSON</option>
                         </select>
                     </div>
-                    <button type="submit" id="Import" name="Import" class="btn btn-primary"
-                        style="display:none;"></button>
-                    <button type="submit" id="Export" name="Export" class="btn btn-success"
-                        style="display:none;"></button>
+                    <button type="submit" id="Export" name="Export" class="btn btn-success" style="display:none;"></button>
                 </div>
             </form>
             <?php
@@ -116,12 +108,9 @@
                     <a href="?page=<?php echo ($currentPage - 1); ?>&table_name=<?php echo $tableName; ?>">Previous</a>
                 <?php endif; ?>
 
-                <select id="pageDropdown"
-                    onchange="window.location.href = '?page=' + this.value + '&table_name=<?php echo $tableName; ?>';">
+                <select id="pageDropdown" onchange="window.location.href = '?page=' + this.value + '&table_name=<?php echo $tableName; ?>';">
                     <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                        <option value="<?php echo $i; ?>" <?php if ($i == $currentPage)
-                               echo 'selected'; ?>><?php echo $i; ?>
-                        </option>
+                        <option value="<?php echo $i; ?>" <?php if ($i == $currentPage) echo 'selected'; ?>><?php echo $i; ?></option>
                     <?php endfor; ?>
                 </select>
 
@@ -158,7 +147,7 @@
         </div>
     </div>
 
-    <script src="scripts.js/charts.js"></script>        <!-- the dom should render and then the script -->         
+    <script src="scripts.js/charts.js"></script> <!-- the dom should render and then the script -->
     <script>
         const chartData = <?php echo $jsonData; ?>;
     </script>

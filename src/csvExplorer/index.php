@@ -18,26 +18,28 @@
         <div class="csv-list-container">
             <!-- Search Bar -->
             <div class="search-container">
-                <input type="text" placeholder="Search...">
-                <button class="button">Search</button>
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button class="button" onclick="filterTable()">Search</button>
             </div>
 
-            <!-- Filter Area -->
-            <div class="filter-container">
-                <select>
-                    <option value="">Filter by...</option>
-                    <option value="date">Date</option>
-                    <option value="name">Name</option>
-                    <option value="size">Size</option>
+            <!-- Sort Area -->
+            <div class="sort-container">
+                <select id="sortSelect">
+                    <option value="">Sort by...</option>
+                    <option value="yearAsc">Year Ascending</option>
+                    <option value="yearDesc">Year Descending</option>
+                    <option value="sizeAsc">Size Ascending</option>
+                    <option value="sizeDesc">Size Descending</option>
                 </select>
-                <button class="button">Apply Filter</button>
+                <button class="button" onclick="sortTable()">Sort</button>
             </div>
         </div>
 
         <!-- CSV File List -->
-        <table>
+        <table id="csvTable">
             <tr>
                 <th>File Name</th>
+                <th>Size</th>
                 <th>Actions</th>
             </tr>
             <?php
@@ -48,8 +50,14 @@
             $result = mysqli_query($conn, "SHOW TABLES LIKE 'parc%'");
             while ($row = mysqli_fetch_array($result)) {
                 $tableName = $row[0];
+                // Get the size of the table (number of rows)
+                $sizeResult = mysqli_query($conn, "SELECT COUNT(*) AS size FROM $tableName");
+                $sizeRow = mysqli_fetch_assoc($sizeResult);
+                $size = $sizeRow['size'];
+
                 echo "<tr>
                         <td>{$tableName}</td>
+                        <td>{$size}</td>
                         <td>
                             <a href=\"../dataExplorerUser/index.php?table_name={$tableName}\" class=\"action-link\">Preview</a>
                             <div class=\"dropdown\">
@@ -65,6 +73,57 @@
             ?>
         </table>
     </div>
+
+    <script>
+        function filterTable() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const table = document.getElementById('csvTable');
+            const rows = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                const fileName = cells[0].textContent.toLowerCase();
+                const matchesSearch = fileName.includes(searchInput);
+
+                if (matchesSearch) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+
+        function sortTable() {
+            const sortSelect = document.getElementById('sortSelect').value;
+            const table = document.getElementById('csvTable');
+            const rows = Array.from(table.getElementsByTagName('tr')).slice(1);
+            const parseYear = fileName => parseInt(fileName.match(/(\d{4})/)[0]);
+            const parseSize = sizeText => parseInt(sizeText);
+
+            let comparator;
+
+            switch (sortSelect) {
+                case 'yearAsc':
+                    comparator = (a, b) => parseYear(a.cells[0].textContent) - parseYear(b.cells[0].textContent);
+                    break;
+                case 'yearDesc':
+                    comparator = (a, b) => parseYear(b.cells[0].textContent) - parseYear(a.cells[0].textContent);
+                    break;
+                case 'sizeAsc':
+                    comparator = (a, b) => parseSize(a.cells[1].textContent) - parseSize(b.cells[1].textContent);
+                    break;
+                case 'sizeDesc':
+                    comparator = (a, b) => parseSize(b.cells[1].textContent) - parseSize(a.cells[1].textContent);
+                    break;
+                default:
+                    return;
+            }
+
+            rows.sort(comparator);
+
+            rows.forEach(row => table.appendChild(row));
+        }
+    </script>
 </body>
 
 </html>

@@ -81,6 +81,7 @@ th {
   background-color: #f2f2f2;
   color: black;
 }
+
 @media screen and (max-width: 1500px) {
   table {
     font-size: 12px;
