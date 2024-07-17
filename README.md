@@ -1,4 +1,4 @@
-# Proiect_TW
+# AUTOPARK SMART EXPLORER
 To be able to see the project with the tabels and diagrams you need to run the migration script located in src/database/migration.sql.
 ## Screenshots
 Home Page <br/>
